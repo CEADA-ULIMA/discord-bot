@@ -1,3 +1,4 @@
 export default {
-  prefix: '-'
-}
+  prefix: '-',
+  CODEFORCES_API: 'https://codeforces.com/api/',
+};

@@ -7,3 +7,28 @@ export interface Command {
   description: string;
   execute(msg: Message, args: string[]): void;
 }
+
+export interface CodeForcesProblem {
+  contestId: number;
+  index: string;
+  name: string;
+  type: string;
+  points: number;
+  rating: number;
+}
+
+export interface CodeForcesProblemsStats {
+  contestId: number;
+  index: string;
+  solvedCount: number;
+}
+
+export interface CodeForcesResponseResult {
+  problems: CodeForcesProblem[];
+  problemStatistics: CodeForcesProblemsStats[];
+}
+
+export interface CodeForcesResponse {
+  status: string;
+  result: CodeForcesResponseResult;
+}
