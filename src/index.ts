@@ -3,6 +3,7 @@ import fs from 'fs';
 import { CustomClient } from './models';
 import config from './config';
 import { BOT_TOKEN, NODE_ENV } from './env';
+import Parser from './utils';
 
 import { Command } from './interfaces';
 
@@ -32,7 +33,7 @@ client.on('ready', () => {
 client.on('message', msg => {
     if (!msg.content.startsWith(config.prefix) || msg.author.bot) return;
 
-    const args: string[] = msg.content.slice(config.prefix.length).trim().split(/ +/);
+    const args: string[] = Parser.parse(msg.content.slice(config.prefix.length));
     let commandName: string | undefined = args.shift();
     if (!commandName) return;
 

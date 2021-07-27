@@ -15,6 +15,7 @@ export interface CodeForcesProblem {
   type: string;
   points: number;
   rating: number;
+  tags: string[];
 }
 
 export interface CodeForcesProblemsStats {
