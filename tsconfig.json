@@ -1,20 +1,10 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "target": "ES2017",
+    "target": "es6",
     "module": "commonjs",
-    "lib": [],
-    "jsx": "preserve",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./dist", 
     "removeComments": true,
-
-    "strict": true,
-
-    "esModuleInterop": true,
-    "baseUrl": ".",
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -22,14 +12,19 @@
       ]
     },
 
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true, 
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["@types"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
 
   "include": [
-    "src/**/*"
+    "src/**/**.ts"
   ],
-
   "exclude": [
     "node_modules"
   ]
