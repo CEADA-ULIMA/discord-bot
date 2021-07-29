@@ -11,6 +11,17 @@ const command: Command = {
   async execute(msg, args) {
     if (args.length == 0) return;
 
+    if (args[0] === 'help') {
+      const response = `
+        > Descripcion: ${this.description}
+        > \`--rating\`: <lower>-<upper> *ejemplo: **--rating 800-3000***.
+        > \`--index\`: <lower>-upper> *ejemplo: **--index A-E***.
+        > \`--tags\`: <tag> *ejemplo: **--tags implementation --tags hashing***.
+      `
+
+      return msg.channel.send(response);
+    }
+
     const argsParser = arg(
       {
         '--rating': String,
