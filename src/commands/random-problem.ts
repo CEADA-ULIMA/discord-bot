@@ -9,8 +9,6 @@ const command: Command = {
   aliases: ['r'],
   description: 'Obtiene un problema random de codeforces',
   async execute(msg, args) {
-    if (args.length == 0) return;
-
     if (args[0] === 'help') {
       const response = `
         > Descripcion: ${this.description}
