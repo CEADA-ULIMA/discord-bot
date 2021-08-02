@@ -16,6 +16,7 @@
   "author": "CEADA-ULIMA",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^16.4.10",
     "eslint": "^7.31.0",
     "nodemon": "^2.0.12",
     "ts-node": "^10.1.0",
