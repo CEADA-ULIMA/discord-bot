@@ -8,6 +8,11 @@ export interface Command {
   execute(msg: Message, args: string[]): void;
 }
 
+export interface SongInfo {
+  title: string;
+  url: string;
+}
+
 export interface CodeForcesProblem {
   contestId: number;
   index: string;
