@@ -25,13 +25,17 @@ export class GuildPlayer {
   public async play(channel: TextChannel | DMChannel | NewsChannel, query?: string) {
     let shouldStartPlayer = false;
     if (this.songQueue.length === 0) shouldStartPlayer = true;
-    if (query){
-      const song = await this.addSong(query);
-      if (!shouldStartPlayer) {
-        channel.send(`${song.title} - Added to the queue`);
+    try {
+      if (query){
+        const song = await this.addSong(query);
+        if (!shouldStartPlayer) {
+          channel.send(`${song.title} - Added to the queue`);
+        }
       }
+      if (shouldStartPlayer) this.player(channel);
+    } catch (err) {
+      channel.send(err.message);
     }
-    if (shouldStartPlayer) this.player(channel);
   }
 
   public player(channel: TextChannel | DMChannel | NewsChannel) {
@@ -66,8 +70,13 @@ export class GuildPlayer {
   }
 
   public async addSong(query: string) {
-    const songInfo = await Player.getSongInfoByQuery(query);
-    this.songQueue.push(songInfo);
-    return songInfo;
+    try {
+      const songInfo = await Player.getSongInfoByQuery(query);
+      this.songQueue.push(songInfo);
+      return songInfo;
+    } catch (err) {
+      console.log(err);
+      throw new Error(`Something wrong happened ${query} NOT FOUND`);
+    }
   }
 }
